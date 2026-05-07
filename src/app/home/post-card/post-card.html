@@ -1,0 +1,4 @@
+<a [href]="'https://reddit.com' + post().permalink" target="_blank" rel="noopener noreferrer">
+  {{ post().title }}
+</a>
+<span>r/{{ post().subreddit }} · u/{{ post().author }} · {{ post().score }} pts · {{ post().num_comments }} comments</span>

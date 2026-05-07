@@ -1,0 +1,109 @@
+@use 'styles/tokens.generated' as t;
+
+:host {
+  display: block;
+  min-width: 0;
+  order: 1;
+
+  @include t.respond-to('lg') {
+    flex: 0 0 20rem;
+    order: 2;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.communities-card {
+  background: linear-gradient(180deg, var(--color-slate-100), var(--color-white) 28%);
+  border: solid 0.0625rem var(--color-slate-200);
+  border-radius: t.$radius-2xl;
+  box-shadow: t.$shadow-sm;
+  padding: t.$spacing-5;
+
+  @include t.respond-to('lg') {
+    position: sticky;
+    top: calc(3.5rem + t.$spacing-4);
+  }
+}
+
+.eyebrow {
+  color: var(--color-slate-600);
+  font-size: t.$font-size-sm;
+  font-weight: t.$font-weight-bold;
+  letter-spacing: 0.08em;
+  margin: 0 0 t.$spacing-4;
+  text-transform: uppercase;
+}
+
+.communities-list {
+  display: flex;
+  flex-direction: column;
+  gap: t.$spacing-2;
+}
+
+.community-link {
+  align-items: center;
+  border-radius: t.$radius-xl;
+  color: inherit;
+  display: grid;
+  gap: t.$spacing-3;
+  grid-template-columns: 3rem minmax(0, 1fr);
+  padding: t.$spacing-3;
+  text-decoration: none;
+  transition: background-color t.$transition-fast;
+
+  &:hover {
+    background-color: var(--color-slate-100);
+  }
+}
+
+.community-avatar {
+  align-items: center;
+  aspect-ratio: 1;
+  background: linear-gradient(135deg, var(--color-slate-700), var(--color-slate-900));
+  border-radius: 999px;
+  color: var(--color-white);
+  display: inline-flex;
+  font-size: t.$font-size-sm;
+  font-weight: t.$font-weight-bold;
+  justify-content: center;
+}
+
+.community-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125rem;
+  min-width: 0;
+}
+
+.community-name {
+  color: var(--color-slate-900);
+  font-weight: t.$font-weight-semibold;
+}
+
+.community-members {
+  color: var(--color-slate-500);
+  font-size: t.$font-size-sm;
+}
+
+.toggle-button {
+  appearance: none;
+  background: none;
+  border: 0;
+  color: var(--color-slate-900);
+  display: inline-block;
+  font: inherit;
+  font-weight: t.$font-weight-semibold;
+  margin-top: t.$spacing-4;
+  padding: 0;
+  text-decoration: none;
+
+  &:hover {
+    cursor: pointer;
+    text-decoration: underline;
+  }
+}

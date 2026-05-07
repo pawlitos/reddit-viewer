@@ -1,0 +1,26 @@
+@use 'styles/tokens.generated' as t;
+
+:host {
+  display: block;
+  background-color: var(--color-white);
+  border-radius: t.$radius-lg;
+  padding: t.$spacing-4;
+  box-shadow: t.$shadow-sm;
+}
+
+a {
+  display: block;
+  font-weight: t.$font-weight-semibold;
+  color: var(--color-slate-900);
+  text-decoration: none;
+  margin-bottom: t.$spacing-2;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+span {
+  font-size: t.$font-size-sm;
+  color: var(--color-slate-500);
+}

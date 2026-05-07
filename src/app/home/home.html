@@ -1,0 +1,29 @@
+<main class="container">
+  <section class="feed">
+    @if (error()) {
+      <p>Failed to load posts.</p>
+    }
+
+    @if (posts().length > 0) {
+      <ul>
+        @for (post of posts(); track post.id) {
+          <li>
+            <app-post-card [post]="post" />
+          </li>
+        }
+      </ul>
+
+      @if (hasMore() && !isLoading()) {
+        <button type="button" class="load-more" (click)="loadMore()">Load more</button>
+      }
+    }
+
+    @if (isLoading()) {
+      <p>Loading...</p>
+    }
+  </section>
+
+  @if (communities().length > 0) {
+    <app-popular-communities [communities]="communities()" />
+  }
+</main>

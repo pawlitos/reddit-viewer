@@ -1,0 +1,54 @@
+@use 'styles/mixins' as m;
+@use 'styles/tokens.generated' as t;
+
+.container {
+  @include m.container;
+
+  display: flex;
+  flex-direction: column;
+  gap: t.$spacing-4;
+  padding-block: t.$spacing-4;
+
+  @include t.respond-to('lg') {
+    align-items: start;
+    flex-direction: row;
+    gap: t.$spacing-6;
+  }
+}
+
+.feed {
+  flex: 1 1 auto;
+  min-width: 0;
+  order: 2;
+
+  @include t.respond-to('lg') {
+    order: 1;
+  }
+}
+
+ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: t.$spacing-3;
+}
+
+.load-more {
+  appearance: none;
+  background-color: var(--color-slate-900);
+  border: 0;
+  border-radius: t.$radius-xl;
+  color: var(--color-white);
+  cursor: pointer;
+  font: inherit;
+  font-weight: t.$font-weight-semibold;
+  margin-top: t.$spacing-4;
+  padding: t.$spacing-3 t.$spacing-4;
+  transition: background-color t.$transition-fast;
+
+  &:hover {
+    background-color: var(--color-slate-800);
+  }
+}
