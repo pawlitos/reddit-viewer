@@ -1,0 +1,32 @@
+@use 'styles/mixins' as m;
+@use 'styles/tokens.generated' as t;
+
+:host {
+  display: block;
+  min-height: 100dvh;
+  padding-top: 3.5rem;
+}
+
+header {
+  background-color: var(--color-slate-100);
+  border-bottom: solid 0.0625rem var(--color-slate-200);
+  height: 3.5rem;
+  left: 0;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: t.$z-sticky;
+}
+
+.container {
+  @include m.container;
+
+  display: flex;
+  align-items: center;
+  height: 100%;
+
+  span {
+    font-size: t.$font-size-lg;
+    font-weight: t.$font-weight-semibold;
+  }
+}
