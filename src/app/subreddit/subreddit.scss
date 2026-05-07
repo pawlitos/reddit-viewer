@@ -1,7 +1,7 @@
-@use 'tokens' as t;
+@use 'styles/tokens.generated' as t;
 
 .subreddit {
-  padding: t.$space-6;
+  padding: t.$spacing-6;
 
   h1 {
     font-size: t.$font-size-3xl;
