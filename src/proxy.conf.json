@@ -1,0 +1,8 @@
+{
+  "/api": {
+    "target": "https://www.reddit.com",
+    "secure": true,
+    "changeOrigin": true,
+    "pathRewrite": { "^/api": "" }
+  }
+}

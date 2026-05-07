@@ -71,7 +71,8 @@
               "buildTarget": "reddit-viewer:build:production"
             },
             "development": {
-              "buildTarget": "reddit-viewer:build:development"
+              "buildTarget": "reddit-viewer:build:development",
+              "proxyConfig": "src/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"
