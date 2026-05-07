@@ -1,3 +1,5 @@
+@use 'styles/tokens.generated';
+
 @font-face {
   font-family: 'Inter';
   src: url('/fonts/Inter-VariableFont_opsz,wght.ttf') format('truetype');
@@ -21,6 +23,8 @@
 }
 
 body {
+  background-color: var(--color-slate-50);
+  color: var(--color-slate-900);
   font-family: 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
