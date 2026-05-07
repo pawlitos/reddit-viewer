@@ -1,0 +1,13 @@
+@use 'tokens.generated' as t;
+
+// Responsive container that only expands at the xl breakpoint.
+@mixin container {
+  width: 100%;
+  margin-inline: auto;
+  padding-inline: t.$spacing-4;
+
+  @include t.respond-to('xl') {
+    max-width: t.$bp-xl;
+    padding-inline: t.$spacing-8;
+  }
+}
