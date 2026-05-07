@@ -3,5 +3,10 @@
     "target": "https://www.reddit.com",
     "secure": true,
     "changeOrigin": true
+  },
+  "/subreddits": {
+    "target": "https://www.reddit.com",
+    "secure": true,
+    "changeOrigin": true
   }
 }
