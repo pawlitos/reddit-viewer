@@ -1,0 +1,10 @@
+@use 'tokens' as t;
+
+.subreddit {
+  padding: t.$space-6;
+
+  h1 {
+    font-size: t.$font-size-3xl;
+    font-weight: t.$font-weight-bold;
+  }
+}

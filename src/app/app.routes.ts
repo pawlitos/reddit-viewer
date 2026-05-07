@@ -5,4 +5,8 @@ export const routes: Routes = [
     path: '',
     loadComponent: () => import('./home/home').then((m) => m.Home),
   },
+  {
+    path: 'r/:subreddit',
+    loadComponent: () => import('./subreddit/subreddit').then((m) => m.Subreddit),
+  },
 ];
