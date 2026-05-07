@@ -1,20 +1,15 @@
-<aside aria-label="Popular communities">
-  <section class="communities-card">
-    <p class="eyebrow">Popular Communities</p>
+<aside>
+  <section>
+    <p>Popular Communities</p>
 
-    <ul class="communities-list">
+    <ul>
       @for (community of visibleCommunities(); track community.display_name) {
         <li>
-          <a
-            [href]="getCommunityHref(community.display_name)"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="community-link"
-          >
-            <span class="community-avatar">{{ getCommunityInitials(community.display_name) }}</span>
-            <span class="community-copy">
-              <span class="community-name">{{ community.display_name_prefixed }}</span>
-              <span class="community-members">{{ getMembersLabel(community.subscribers) }}</span>
+          <a [routerLink]="getCommunityHref(community.display_name)">
+            <span class="avatar">{{ getCommunityInitials(community.display_name) }}</span>
+            <span class="description">
+              <span class="name">{{ community.display_name_prefixed }}</span>
+              <span class="members">{{ getMembersLabel(community.subscribers) }}</span>
             </span>
           </a>
         </li>
@@ -23,9 +18,9 @@
 
     @if (canToggle()) {
       @if (!isExpanded()) {
-        <button type="button" class="toggle-button" (click)="showAll()">See more</button>
+        <button type="button" (click)="showAll()">See more</button>
       } @else {
-        <button type="button" class="toggle-button" (click)="showLess()">Show less</button>
+        <button type="button" (click)="showLess()">Show less</button>
       }
     }
   </section>

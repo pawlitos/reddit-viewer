@@ -1,10 +1,11 @@
 import { Component, computed, input, signal } from '@angular/core';
+import { RouterLink } from '@angular/router';
 
 import { SubredditInfo } from '@app/core/models';
 
 @Component({
   selector: 'app-popular-communities',
-  imports: [],
+  imports: [RouterLink],
   templateUrl: './popular-communities.html',
   styleUrl: './popular-communities.scss',
 })
@@ -27,7 +28,7 @@ export class PopularCommunities {
   }
 
   protected getCommunityHref(name: string) {
-    return `https://reddit.com/r/${name}`;
+    return `/r/${name}`;
   }
 
   protected getCommunityInitials(name: string) {
