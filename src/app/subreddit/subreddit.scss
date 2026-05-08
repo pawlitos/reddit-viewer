@@ -1,10 +1,11 @@
+@use 'styles/mixins' as m;
 @use 'styles/tokens.generated' as t;
 
-.subreddit {
-  padding: t.$spacing-6;
+.container {
+  @include m.container;
+}
 
-  h1 {
-    font-size: t.$font-size-3xl;
-    font-weight: t.$font-weight-bold;
-  }
+h1 {
+  font-size: t.$font-size-3xl;
+  font-weight: t.$font-weight-bold;
 }
