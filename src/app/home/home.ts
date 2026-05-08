@@ -38,11 +38,7 @@ export class Home implements OnInit, OnDestroy {
     this.postsSubscription?.unsubscribe();
   }
 
-  protected loadMore() {
-    this.loadPosts();
-  }
-
-  private loadPosts() {
+  protected loadPosts() {
     this.isLoading.set(true);
     this.error.set(null);
     this.postsSubscription = this.reddit.getPosts('popular', 'hot', 10, this.after()).subscribe({
