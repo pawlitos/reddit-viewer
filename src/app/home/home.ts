@@ -1,7 +1,8 @@
 import { Component, computed, inject, OnDestroy, OnInit, signal } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
-import { RedditPost, SubredditInfo } from '@app/core/models';
+import { RedditListing, RedditPost, SubredditInfo } from '@app/core/models';
 import { Reddit } from '@app/core/services';
 import { PopularCommunities } from './popular-communities';
 import { PostCard } from './post-card';
@@ -14,8 +15,8 @@ import { PostCard } from './post-card';
 })
 export class Home implements OnInit, OnDestroy {
   private readonly reddit = inject(Reddit);
+  private readonly route = inject(ActivatedRoute);
   private postsSubscription?: Subscription;
-  private popularCommunitiesSubscription?: Subscription;
 
   protected readonly posts = signal<RedditPost[]>([]);
   protected readonly communities = signal<SubredditInfo[]>([]);
@@ -25,13 +26,16 @@ export class Home implements OnInit, OnDestroy {
   protected readonly hasMore = computed(() => this.after() !== null);
 
   ngOnInit() {
-    this.loadPosts();
-    this.loadPopularCommunities();
+    const postsListing = this.route.snapshot.data['posts'] as RedditListing<RedditPost>;
+    this.posts.set(postsListing.data.children.map((c) => c.data));
+    this.after.set(postsListing.data.after);
+
+    const communitiesListing = this.route.snapshot.data['communities'] as RedditListing<SubredditInfo>;
+    this.communities.set(communitiesListing.data.children.map((c) => c.data));
   }
 
   ngOnDestroy() {
     this.postsSubscription?.unsubscribe();
-    this.popularCommunitiesSubscription?.unsubscribe();
   }
 
   protected loadMore() {
@@ -50,14 +54,6 @@ export class Home implements OnInit, OnDestroy {
       error: (err) => {
         this.error.set(err);
         this.isLoading.set(false);
-      },
-    });
-  }
-
-  private loadPopularCommunities() {
-    this.popularCommunitiesSubscription = this.reddit.getPopularSubreddits().subscribe({
-      next: (listing) => {
-        this.communities.set(listing.data.children.map((c) => c.data));
       },
     });
   }
