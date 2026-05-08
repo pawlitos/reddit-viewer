@@ -1,2 +1,2 @@
-export * from './communities-resolver/communities-resolver';
-export * from './posts-resolver/posts-resolver';
+export * from './communities/communities-resolver';
+export * from './posts/posts-resolver';
