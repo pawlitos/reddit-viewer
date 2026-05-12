@@ -1,3 +1,25 @@
+@if (navigationState.isFirstNavigation()) {
+  <div class="initial-loading" role="status" aria-label="Loading application">
+    <svg class="spinner" viewBox="0 0 50 50" aria-hidden="true">
+      <circle class="spinner__track" cx="25" cy="25" r="20" fill="none" stroke-width="4" />
+      <circle class="spinner__arc" cx="25" cy="25" r="20" fill="none" stroke-width="4" />
+    </svg>
+  </div>
+}
+
+@if (navigationState.isLoading()) {
+  <div
+    class="progress-bar"
+    role="progressbar"
+    aria-label="Loading"
+    aria-valuemin="0"
+    aria-valuemax="100"
+    aria-valuenow="50"
+  >
+    <div class="progress-bar__fill"></div>
+  </div>
+}
+
 <header>
   <div class="container">
     <a routerLink="/">{{ title() }}</a>
