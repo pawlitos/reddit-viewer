@@ -2,10 +2,10 @@ import { Component, computed, inject, OnDestroy, OnInit, signal } from '@angular
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 
+import { PostCard } from '@app/core/components';
 import { RedditListing, RedditPost, SubredditInfo } from '@app/core/models';
 import { Reddit } from '@app/core/services';
 import { PopularCommunities } from './popular-communities';
-import { PostCard } from './post-card';
 
 @Component({
   selector: 'app-home',
@@ -30,7 +30,9 @@ export class Home implements OnInit, OnDestroy {
     this.posts.set(postsListing.data.children.map((c) => c.data));
     this.after.set(postsListing.data.after);
 
-    const communitiesListing = this.route.snapshot.data['communities'] as RedditListing<SubredditInfo>;
+    const communitiesListing = this.route.snapshot.data[
+      'communities'
+    ] as RedditListing<SubredditInfo>;
     this.communities.set(communitiesListing.data.children.map((c) => c.data));
   }
 

@@ -3,9 +3,9 @@
 :host {
   display: block;
   background-color: var(--color-white);
+  border: solid 0.0625rem var(--color-slate-200);
   border-radius: t.$radius-lg;
   padding: t.$spacing-4;
-  box-shadow: t.$shadow-sm;
 }
 
 a {
