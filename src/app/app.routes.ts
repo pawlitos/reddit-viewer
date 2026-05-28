@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 
 import { communitiesResolver, postsResolver } from './home/resolvers';
+import { NotFound } from './not-found/not-found';
 
 export const routes: Routes = [
   {
@@ -12,4 +13,6 @@ export const routes: Routes = [
     path: 'r/:subreddit',
     loadComponent: () => import('./subreddit/subreddit').then((m) => m.Subreddit),
   },
+  { path: 'not-found', component: NotFound },
+  { path: '**', redirectTo: 'not-found' },
 ];
